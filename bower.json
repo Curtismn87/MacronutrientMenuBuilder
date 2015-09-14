@@ -1,0 +1,22 @@
+{
+  "name": "MacronutrientMenuBuilder",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Curtismn87/MacronutrientMenuBuilder",
+  "authors": [
+    "Matt Curtis <Curtismn87@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "bower": "*",
+    "install": "~1.0.4",
+    "jquery": "~2.1.4"
+  }
+}
