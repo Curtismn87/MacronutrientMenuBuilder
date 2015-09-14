@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MenuBuilder">
+<head>
+ <meta charset="UTF-8">
+ <title>Macronutrient Menu Builder</title>
+ <script src="bower_components/jquery/dist/jquery.min.js"></script>
+ <script src="bower_components/angular/angular.min.js"></script>
+ <script src="js/app.js"></script>
+ <script src="js/controllers/foods.js"></script>
+</head>
+<body>
+
+  <h1>Macronutrient Menu Builder</h1>
+<p>If this says six  <{{3 + 3}}> angular still works </p>
+  <div ng-controller='foodsController as foodsCtrl'>
+    <div ng-repeat="food in foodsCtrl.foods">
+  <p>{{$index}} {{food}}</p>
+    </div>
+  </div>
+
+</body>
+</html>
