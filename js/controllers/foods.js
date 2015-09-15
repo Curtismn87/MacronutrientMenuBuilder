@@ -1,18 +1,18 @@
 (function() {
   var app = angular.module("MenuBuilder", []);
 
-  app.controller("foodsController",["$scope", "$http", function(){
+  app.controller("foodsController",["$scope", "$http" , function($scope, $http){
     console.log("before getFoods is run");
-      this.getFoods = function($scope, $http){
+    this.getFoods = function(){
         console.log("button clicked");
-        $http.get("http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&nutrients=205&nutrients=204&nutrients=208&nutrients=269")
+        $http.get("http://api.nal.usda.gov/ndb/list?format=json&lt=f&sort=n&api_key=DEMO_KEY")
         .success(function(response){
           $scope.food = response;
           console.log(response);
-        })
-        .fail(function(){
-          console.log("call has failed");
         });
+        // .fail(function(){
+        //   console.log("call has failed");
+        // });
       };
   }]);
 })();
