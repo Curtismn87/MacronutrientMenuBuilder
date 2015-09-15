@@ -1,5 +1,6 @@
 (function() {
-  var app = angular.module("MenuBuilder");
+  var app = angular.module("MenuBuilder", []);
+
   app.controller("foodsController", function(){
     this.foods = [
       {name: "Chicken"}, {name: "Beef"}, {name: "Pizza"}, {name: "Cake"}
@@ -19,7 +20,7 @@
     };
     this.delete = function(index){
       this.foods.splice(index, 1);
-    }
+    };
 
 
   }); // end of controller
