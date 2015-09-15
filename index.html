@@ -9,19 +9,21 @@
  <script src="bower_components/angular-resource/angular-resource.js"></script>
  <script src="js/app.js"></script>
  <script src="js/controllers/foods.js"></script>
+ <script src="js/services/foods.js"></script>
 </head>
 <body>
 
   <h1>Macronutrient Menu Builder</h1>
 <p>If this says six  <{{3 + 3}}> angular still works </p>
   <div ng-controller='foodsController as foodsCtrl'>
+    <button ng-click='foodsCtrl.getFoods()' class='cancel'>Get</button>
     <form ng-submit="foodsCtrl.create()">
      <label>Enter Food</label>
      <input type="text" name="food" ng-model="foodsCtrl.food">
      <input type="submit">
    </form>
     <div ng-repeat="food in foodsCtrl.foods">
-      Index: {{$index}} {{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
+      <span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
   <p ng-show="!editFood">
   <button class ="edit" ng-click="foodsCtrl.edit($index); editFood = !editFood">Edit Todo</button>
   <form ng-show="editFood">
