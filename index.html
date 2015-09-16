@@ -7,40 +7,41 @@
  <script src="bower_components/jquery/dist/jquery.min.js"></script>
  <script src="bower_components/angular/angular.min.js"></script>
  <script src="bower_components/angular-resource/angular-resource.js"></script>
+ <script src="bower_components/firebase/firebase.js"></script>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  <script src="js/app.js"></script>
  <script src="js/controllers/foods.js"></script>
  <script src="js/services/foods.js"></script>
+
 </head>
 <body>
-
+  <div class="jumbotron">
   <h1>Macronutrient Menu Builder</h1>
+</div>
 <p>If this says six  <{{3 + 3}}> angular still works </p>
   <div ng-controller='foodsController as foodsCtrl'>
-    <button ng-click='foodsCtrl.getFoods()' class='cancel'>Get</button>
-    <form ng-submit="foodsCtrl.create()">
-     <label>Enter Food</label>
-     <input type="text" name="food" ng-model="foodsCtrl.food">
+    <button ng-click='foodsCtrl.getFoods()' class='getFoods'>Get</button>
+    <form ng-submit="foodsCtrl.toggleShowProtein(False)" ng-show="foodsCtrl.toggleShowProtein">
+     <label>Enter Protein</label>
+     <input type="text" name="protein" ng-model="foodsCtrl.protein">
      <input type="submit">
    </form>
     <div ng-repeat="food in jsonfoods">
       {{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
     <ul>
-      <li>{{food.nutrients[0].nutrient}}: {{food.nutrients[0].value}}</li>
-      <li>{{food.nutrients[1].nutrient}}: {{food.nutrients[1].value}}</li>
-      <li>{{food.nutrients[2].nutrient}}: {{food.nutrients[2].value}}</li>
+      <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}</li>
     </ul>
-
-
-  <!-- <p ng-show="!editFood">
-  <button class ="edit" ng-click="foodsCtrl.edit($index); editFood = !editFood">Edit Todo</button>
-  <form ng-show="editFood">
-    <input type="text" name="name" ng-model="foodsCtrl.name">
-    <button class="new" ng-click="foodsCtrl.edit($index); editFood = !editFood">Save</button>
-    <button ng-click='editFood = !editFood' class='cancel'>Cancel</button> -->
-
-  </form>
     </div>
   </div>
 
 </body>
 </html>
+<!-- <p ng-show="!editFood">
+<button class ="edit" ng-click="foodsCtrl.edit($index); editFood = !editFood">Edit Todo</button>
+<form ng-show="editFood">
+  <input type="text" name="name" ng-model="foodsCtrl.name">
+  <button class="new" ng-click="foodsCtrl.edit($index); editFood = !editFood">Save</button>
+  <button ng-click='editFood = !editFood' class='cancel'>Cancel</button> -->
+<!-- </form> -->
