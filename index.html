@@ -22,14 +22,21 @@
      <input type="text" name="food" ng-model="foodsCtrl.food">
      <input type="submit">
    </form>
-    <div ng-repeat="food in foodsCtrl.foods">
-      <span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
-  <p ng-show="!editFood">
+    <div ng-repeat="food in jsonfoods">
+      {{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
+    <ul>
+      <li>{{food.nutrients[0].nutrient}}: {{food.nutrients[0].value}}</li>
+      <li>{{food.nutrients[1].nutrient}}: {{food.nutrients[1].value}}</li>
+      <li>{{food.nutrients[2].nutrient}}: {{food.nutrients[2].value}}</li>
+    </ul>
+
+
+  <!-- <p ng-show="!editFood">
   <button class ="edit" ng-click="foodsCtrl.edit($index); editFood = !editFood">Edit Todo</button>
   <form ng-show="editFood">
     <input type="text" name="name" ng-model="foodsCtrl.name">
     <button class="new" ng-click="foodsCtrl.edit($index); editFood = !editFood">Save</button>
-    <button ng-click='editFood = !editFood' class='cancel'>Cancel</button>
+    <button ng-click='editFood = !editFood' class='cancel'>Cancel</button> -->
 
   </form>
     </div>

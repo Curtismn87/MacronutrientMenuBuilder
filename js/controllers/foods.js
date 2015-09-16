@@ -5,14 +5,17 @@
     console.log("before getFoods is run");
     this.getFoods = function(){
         console.log("button clicked");
-        $http.get("http://api.nal.usda.gov/ndb/list?format=json&lt=f&sort=n&api_key=DEMO_KEY")
+        $http.get("http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&nutrients=205&nutrients=204&nutrients=203")
         .success(function(response){
-          $scope.food = response;
-          console.log(response);
+          $scope.jsonfoods = response.report.foods;
+
+          console.log(response.report.foods);
+          console.log(response.report.foods[0].nutrients[0].nutrient);
+          console.log(response.report.foods[0].nutrients[0].value);
         });
-        // .fail(function(){
-        //   console.log("call has failed");
-        // });
+      };
+      this.delete = function(index){
+        jsonfoods.delete(index, 1);
       };
   }]);
 })();
@@ -46,7 +49,6 @@
 //   var food = this.foods[index];
 //   food.name = this.name;
 // };
-// this.delete = function(index){
-//   this.foods.splice(index, 1);
+
 // };
 //
