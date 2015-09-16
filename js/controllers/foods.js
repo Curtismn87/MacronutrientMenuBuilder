@@ -1,7 +1,9 @@
 (function() {
   var app = angular.module("MenuBuilder", []);
 
-  app.controller("foodsController",["$scope", "$http" , function($scope, $http){
+  app.controller("foodsController",["$scope", "$http", function($scope, $http){
+    // var ref = new Firebase("https://macronutrientmenu.firebaseio.com");
+    // $scope.data = $firebaseObject(ref);
     console.log("before getFoods is run");
     $scope.jsonfoods = {};
     this.getFoods = function(){
@@ -16,22 +18,30 @@
         $scope.jsonfoods.splice(index, 1);
       };
 
-    var self = this;
-    self.showProtein = true;
-    self.toggleShowProtein = function(value){
-      var input = this.protein;
-      console.log($scope.jsonfoods);
-      console.log(input);
-      for (var i=0; i < $scope.jsonfoods.length; i ++){
-        for (var x=0; x < $scope.jsonfoods.nutrients.length; x++){
-          if (input > $scope.jsonfoods.nutrients[0].value - ($scope.jsonfoods.nutrients[0].value * (5/100)) && input < $scope.jsonfoods.nutrients[0].value + ($scope.jsonfoods.nutrients[0].value * (5/100)) )
-          console.log(this.$scope.jsonfoods);
-          self.showProtein = value;
+      var self = this;
+      self.showProtein = true;
+      self.toggleShowProtein = function(value){
+        var input = this.protein;
+        console.log("this is all the foods" + $scope.jsonfoods);
+        console.log("this is food at index 1" + $scope.jsonfoods[1].nutrients);
+        for (var i=0; i < $scope.jsonfoods.length; i ++){
+            var protein = $scope.jsonfoods[i].nutrients[0].value;
+            var fat = $scope.jsonfoods[i].nutrients[1].value;
+            var carbs = $scope.jsonfoods[i].nutrients[2].value;
+            if (input > protein - (protein * (5/100)) && input < protein + (protein * (5/100))){
+              self.showProtein = value;
+              console.log("passed" + $scope.jsonfoods[i].name + protein);
+            }
+            else {
+              console.log("failed" + $scope.jsonfoods[i].name + protein);
+            }
         }
-      }
-    };
+      };
+
+
   }]);
 })();
+
 
 
 // this.create = function(){

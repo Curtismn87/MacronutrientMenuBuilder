@@ -16,6 +16,7 @@
   "dependencies": {
     "angular": "~1.4.5",
     "angular-resource": "~1.4.5",
+    "angularfire": "~1.1.2",
     "bootstrap": "~3.3.5",
     "bower": "*",
     "firebase": "~2.2.9",

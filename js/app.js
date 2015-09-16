@@ -2,6 +2,7 @@
   var app = angular.module('MenuBuilder', [
     "foodsController",
     "ngResource",
-    "foodServices"
+    "foodServices",
+    "firebase"
   ]); // ends modoule
 })(); // end function and immediately invokes
