@@ -7,11 +7,14 @@
     console.log("before getFoods is run");
     $scope.jsonfoods = {};
     this.getFoods = function(){
+      var options = $("select option:selected").val();
+      console.log(options);
+      var foodsURL = "http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&max=1500&fg="+ options +"&nutrients=205&nutrients=204&nutrients=203";
+      console.log(foodsURL);
         console.log("button clicked");
-        $http.get("http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&max=1500&fg=13&nutrients=205&nutrients=204&nutrients=203")
+        $http.get(foodsURL)
         .success(function(response){
           $scope.jsonfoods = response.report.foods;
-          console.log("this is the resposne" + response.report.foods);
         });
       };
       this.delete = function(index){
@@ -19,25 +22,16 @@
       };
 
       var self = this;
-      self.showProtein = true;
       self.toggleShowProtein = function(value){
         var input = this.protein;
-        console.log("this is the input" + input);
-        console.log("this is all the foods" + $scope.jsonfoods);
-        console.log("this is food at index 1" + $scope.jsonfoods[1].nutrients);
         for (var i=0; i < $scope.jsonfoods.length; i ++){
             var protein = parseFloat($scope.jsonfoods[i].nutrients[0].value);
             var fat = $scope.jsonfoods[i].nutrients[1].value;
             var carbs = $scope.jsonfoods[i].nutrients[2].value;
             if (input >= protein - (protein * (5/100)) && input <= protein + (protein * (5/100))){
-              console.log("passed" + $scope.jsonfoods[i].name + protein);
               $("#"+i).show();
-              console.log("this is the input" + input);
             }
             else {
-              // console.log("failed" + $scope.jsonfoods[i].name + protein);
-              // console.log($("#"+i));
-              // console.log("this is the input" + input);
               $("#"+i).hide();
             }
         }
