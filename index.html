@@ -29,7 +29,7 @@
      <input type="text" name="protein" ng-model="foodsCtrl.protein">
      <input type="submit">
    </form>
-    <div ng-repeat="food in jsonfoods">
+    <div class="food" id={{$index}} ng-repeat="food in jsonfoods">
       {{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
     <ul>
       <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}</li>
