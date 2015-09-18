@@ -51,19 +51,22 @@
 </select>
   <div ng-controller='foodsController as foodsCtrl'>
     <button ng-click='foodsCtrl.getFoods()' class='getFoods'>Show Foods</button>
-    <form ng-submit="foodsCtrl.toggleShowProtein(False)" ng-show="foodsCtrl.toggleShowProtein">
+    <form ng-submit="foodsCtrl.toggleShowProtein()" ng-show="foodsCtrl.toggleShowProtein">
      <label>Enter Protein</label>
      <input type="text" name="protein" ng-model="foodsCtrl.protein">
+     <!-- <label>Enter Fat</label>
+     <input type="text" name="fat" ng-model="foodsCtrl.fat">
+     <label>Enter Carbohydrate</label>
+     <input type="text" name="carbohydrate" ng-model="foodsCtrl.carbohydrate"> -->
      <input type="submit">
-
    </form>
     <div class="food" id={{$index}} ng-repeat="food in jsonfoods">
-      <p>{{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span></p>
+      <p>{{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span>
+        <!-- <span class="add" ng-click="foodsCtrl.add($index)"> + </span></p> -->
     <ul>
       <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}</li>
     </ul>
     </div>
-  </div>
 
 </body>
 </html>

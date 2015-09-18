@@ -1,11 +1,20 @@
 .delete{
   color: red;
 }
+.add{
+  color: green;
+}
+.body{
+  overflow: hidden;
+}
 .food {
   background-color: lemonchiffon;
   width: 20%;
   display: inline-block;
   padding: 10px;
   margin: 4px;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 10px black;
 
 }
