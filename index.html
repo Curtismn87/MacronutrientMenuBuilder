@@ -21,6 +21,7 @@
   <div class="jumbotron">
   <h1>Macronutrient Menu Builder</h1>
 </div>
+<div class="foodGroupDropdown">
 <select>
 <option value="0100" id="dairy">Dairy and Egg Products</option>
 <option value="0200" id="spices">Spices and Herbs</option>
@@ -48,6 +49,7 @@
 <option value="3500" id="american_indian">American Indian/Alaska Native Foods</option>
 <option value="3600" id="restaurant_foods">Restaurant Foods</option>
 </select>
+</div>
   <div ng-controller='foodsController as foodsCtrl'>
     <button ng-click='foodsCtrl.getFoods()' class='getFoods'>Show Foods</button>
     <form ng-submit="foodsCtrl.toggleShowProtein()" ng-show="foodsCtrl.toggleShowProtein">
@@ -59,13 +61,15 @@
      <input type="text" name="carbohydrate" ng-model="foodsCtrl.carbohydrate"> -->
      <input type="submit">
    </form>
+   <div class="foodList">
     <div class="food" id={{$index}} ng-repeat="food in jsonfoods">
-      <p>{{food.name}}<span class="delete" ng-click="foodsCtrl.delete($index)"> x </span>
+      <p><span class="delete" ng-click="foodsCtrl.delete($index)"> x </span>{{food.name}}</p>
         <!-- <span class="add" ng-click="foodsCtrl.add($index)"> + </span></p> -->
     <ul>
       <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}g</li>
     </ul>
     </div>
+  </div>
 
 </body>
 </html>

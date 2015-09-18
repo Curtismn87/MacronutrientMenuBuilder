@@ -7,14 +7,25 @@
 .body{
   overflow: hidden;
 }
+.foodlist{
+  display:flex;
+}
 .food {
   background-color: lemonchiffon;
-  width: 20%;
+  width: 19.1%;
+  height: 250px;
   display: inline-block;
   padding: 10px;
   margin: 4px;
   overflow: hidden;
   border-radius: 15px;
-  border: 10px black;
+  border: 2px solid rgb(219, 212, 148);
+}
 
+.food:hover{
+  background-color: rgb(183, 174, 95)
+}
+
+.foodGroupDropdown{
+  margin: 10px;
 }
