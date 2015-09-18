@@ -15,51 +15,50 @@
  <script src="js/app.js"></script>
  <script src="js/controllers/foods.js"></script>
  <script src="js/services/foods.js"></script>
-
 </head>
+
 <body>
-  <div class="jumbotron">
-  <h1>Macronutrient Menu Builder</h1>
-</div>
+  <div class="page-header mainTitle">
+    <h1> Macronutrient Menu Builder </h1>
+  </div>
 <div class="foodGroupDropdown">
-<select>
-<option value="0100" id="dairy">Dairy and Egg Products</option>
-<option value="0200" id="spices">Spices and Herbs</option>
-<option value="0300" id="baby_foods">Baby Foods</option>
-<option value="0400" id="fats_oils">Fats and Oils</option>
-<option value="0500" id="poultry">Poultry Products</option>
-<option value="0600" id="soups">Soups, Sauces, and Gravies</option>
-<option value="0700" id="sausages">Sausages and Luncheon Meats</option>
-<option value="0800" id="breakfast_cereals">Breakfast Cereals</option>
-<option value="0900" id="fruits">Fruits and Fruit Juices</option>
-<option value="1000" id="pork">Pork Products</option>
-<option value="1100" id="vegetables">Vegetables and Vegetable Products</option>
-<option value="1200" id="nut">Nut and Seed Products</option>
-<option value="1300" id="beef">Beef Products</option>
-<option value="1400" id="beverages">Beverages</option>
-<option value="1500" id="finfish">Finfish and Shellfish Products</option>
-<option value="1600" id="legumes">Legumes and Legume Products</option>
-<option value="1700" id="lamb_veal">Lamb, Veal, and Game Products</option>
-<option value="1800" id="baked_products">Baked Products</option>
-<option value="1900" id="sweets">Sweets</option>
-<option value="2000" id="cereal_grains_pasta">Cereal Grains and Pasta</option>
-<option value="2100" id="fast_foods">Fast Foods</option>
-<option value="2200" id="meals">Meals, Entrees, and Side Dishes</option>
-<option value="2500" id="snacks">Snacks</option>
-<option value="3500" id="american_indian">American Indian/Alaska Native Foods</option>
-<option value="3600" id="restaurant_foods">Restaurant Foods</option>
-</select>
+  <select>
+  <option value="0100" id="dairy">Dairy and Egg Products</option>
+  <option value="0200" id="spices">Spices and Herbs</option>
+  <option value="0300" id="baby_foods">Baby Foods</option>
+  <option value="0400" id="fats_oils">Fats and Oils</option>
+  <option value="0500" id="poultry">Poultry Products</option>
+  <option value="0600" id="soups">Soups, Sauces, and Gravies</option>
+  <option value="0700" id="sausages">Sausages and Luncheon Meats</option>
+  <option value="0800" id="breakfast_cereals">Breakfast Cereals</option>
+  <option value="0900" id="fruits">Fruits and Fruit Juices</option>
+  <option value="1000" id="pork">Pork Products</option>
+  <option value="1100" id="vegetables">Vegetables and Vegetable Products</option>
+  <option value="1200" id="nut">Nut and Seed Products</option>
+  <option value="1300" id="beef">Beef Products</option>
+  <option value="1400" id="beverages">Beverages</option>
+  <option value="1500" id="finfish">Finfish and Shellfish Products</option>
+  <option value="1600" id="legumes">Legumes and Legume Products</option>
+  <option value="1700" id="lamb_veal">Lamb, Veal, and Game Products</option>
+  <option value="1800" id="baked_products">Baked Products</option>
+  <option value="1900" id="sweets">Sweets</option>
+  <option value="2000" id="cereal_grains_pasta">Cereal Grains and Pasta</option>
+  <option value="2100" id="fast_foods">Fast Foods</option>
+  <option value="2200" id="meals">Meals, Entrees, and Side Dishes</option>
+  <option value="2500" id="snacks">Snacks</option>
+  <option value="3500" id="american_indian">American Indian/Alaska Native Foods</option>
+  <option value="3600" id="restaurant_foods">Restaurant Foods</option>
+  </select>
 </div>
   <div ng-controller='foodsController as foodsCtrl'>
-    <button ng-click='foodsCtrl.getFoods()' class='getFoods'>Show Foods</button>
-    <form ng-submit="foodsCtrl.toggleShowProtein()" ng-show="foodsCtrl.toggleShowProtein">
-     <label>Enter Protein (g)</label>
-     <input type="text" name="protein" ng-model="foodsCtrl.protein">
+    <button ng-click='foodsCtrl.getFoods()' class='showFoods btn btn-info'>Show Foods</button>
+    <form ng-submit="foodsCtrl.toggleShowProtein()" class="proteinForm form-group" ng-show="foodsCtrl.toggleShowProtein">
+     <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
      <!-- <label>Enter Fat</label>
      <input type="text" name="fat" ng-model="foodsCtrl.fat">
      <label>Enter Carbohydrate</label>
      <input type="text" name="carbohydrate" ng-model="foodsCtrl.carbohydrate"> -->
-     <input type="submit">
+     <input type="submit" class="btn btn-primary">
    </form>
    <div class="foodList">
     <div class="food" id={{$index}} ng-repeat="food in jsonfoods">
@@ -70,7 +69,7 @@
     </ul>
     </div>
   </div>
-
+  </div>
 </body>
 </html>
 <!-- <p ng-show="!editFood">

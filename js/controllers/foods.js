@@ -7,11 +7,13 @@
     $scope.jsonfoods = {};
     $menuItems = [];
     this.getFoods = function(){
+      console.log("button Clicked");
       var options = $("select option:selected").val();
       var foodsURL = "http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&max=1500&fg="+ options +"&nutrients=205&nutrients=204&nutrients=203";
         $http.get(foodsURL)
         .success(function(response){
           $scope.jsonfoods = response.report.foods;
+          console.log($scope.jsonfoods);
         });
       };
       this.delete = function(index){
