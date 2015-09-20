@@ -56,22 +56,17 @@
     <form ng-submit="foodsCtrl.toggleShowProtein()" class="proteinForm form-group" ng-show="foodsCtrl.toggleShowProtein">
       <label>Protein</label>
      <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
-     <!-- <label>Enter Fat</label>
-     <input type="text" name="fat" ng-model="foodsCtrl.fat">
-     <label>Enter Carbohydrate</label>
-     <input type="text" name="carbohydrate" ng-model="foodsCtrl.carbohydrate"> -->
      <input type="submit" class="btn btn-primary">
    </form>
    <h2>Current Ingredients</h2>
    <div class="addedFood" ng-repeat="foods in addedFood">
      <div class="addedFood" ng-repeat="food in foods">
-     <p>{{food.name}}</p>
-   </div>
+       <p>{{food.name}}</p>
+     </div>
    </div>
    <div class="foodList">
     <div class="food" id={{$index}} ng-repeat="food in jsonfoods" ng-click="foodsCtrl.add($index)">
       <p><span class="add"> + </span>{{food.name}}</p>
-        <!-- <span class="add" ng-click="foodsCtrl.add($index)"> + </span></p> -->
     <ul>
       <li>Serving Size: {{food.measure}} </li>
       <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}g</li>
@@ -81,10 +76,3 @@
   </div>
 </body>
 </html>
-<!-- <p ng-show="!editFood">
-<button class ="edit" ng-click="foodsCtrl.edit($index); editFood = !editFood">Edit Todo</button>
-<form ng-show="editFood">
-  <input type="text" name="name" ng-model="foodsCtrl.name">
-  <button class="new" ng-click="foodsCtrl.edit($index); editFood = !editFood">Save</button>
-  <button ng-click='editFood = !editFood' class='cancel'>Cancel</button> -->
-<!-- </form> -->
