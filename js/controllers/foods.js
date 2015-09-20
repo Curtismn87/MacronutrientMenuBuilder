@@ -5,7 +5,7 @@
     // var ref = new Firebase("https://macronutrientmenu.firebaseio.com");
     // $scope.data = $firebaseObject(ref);
     $scope.jsonfoods = {};
-    $menuItems = [];
+    $scope.addedFood = [];
     this.getFoods = function(){
       console.log("button Clicked");
       var options = $("select option:selected").val();
@@ -17,13 +17,12 @@
         });
       };
       this.delete = function(index){
-        $scope.jsonfoods.splice(index, 1);
+        var newFood = $scope.jsonfoods.splice(index, 1);
+        $scope.addedFood.push(newFood);
+        for (i = 0; i < newFood.length; i++){
+        console.log("This is the new food array" + newFood[i]);
+      }
       };
-      this.add = function(index){
-        console.log($scope.jsonfoods.val());
-        // $menuItems.push($(this))
-      };
-
       var self = this;
       self.toggleShowProtein = function(value){
         var proteinInput = this.protein;
@@ -39,18 +38,14 @@
             else {
               $("#"+i).hide();
             }
+
+          this.protein="";
         }
 
       };
 
   }]);
 })();
-$(".food").mouseover(function(){
-  $(".food").css("background-color", "black");
-});
-$(".food").on("click", function(){
-  console.log("div was clicked");
-});
 
 
 

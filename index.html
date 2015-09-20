@@ -20,6 +20,7 @@
 <body>
   <div class="page-header mainTitle">
     <h1> Macronutrient Menu Builder </h1>
+
   </div>
 <div class="foodGroupDropdown">
   <select>
@@ -53,6 +54,7 @@
   <div ng-controller='foodsController as foodsCtrl'>
     <button ng-click='foodsCtrl.getFoods()' class='showFoods btn btn-info'>Show Foods</button>
     <form ng-submit="foodsCtrl.toggleShowProtein()" class="proteinForm form-group" ng-show="foodsCtrl.toggleShowProtein">
+      <label>Protein</label>
      <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
      <!-- <label>Enter Fat</label>
      <input type="text" name="fat" ng-model="foodsCtrl.fat">
@@ -60,11 +62,18 @@
      <input type="text" name="carbohydrate" ng-model="foodsCtrl.carbohydrate"> -->
      <input type="submit" class="btn btn-primary">
    </form>
+   <!-- <div class="addedFood" ng-repeat="food in addedFood">
+     <p>{{food.ndbno}}</p>
+     <p>{{food.name}}</p>
+     <p>{{food}}</p>
+    <p>{{food.nutrients}}</p>
+   </div> -->
    <div class="foodList">
     <div class="food" id={{$index}} ng-repeat="food in jsonfoods">
       <p><span class="delete" ng-click="foodsCtrl.delete($index)"> x </span>{{food.name}}</p>
         <!-- <span class="add" ng-click="foodsCtrl.add($index)"> + </span></p> -->
     <ul>
+      <li>Serving Size: {{food.measure}} </li>
       <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}g</li>
     </ul>
     </div>
