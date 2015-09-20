@@ -2,12 +2,12 @@
 .ng-scope{
   display: inline;
 }
-.delete{
-  color: red;
-}
+
 .add{
   color: green;
 }
+
+
 .body{
   overflow: hidden;
 }
@@ -16,6 +16,7 @@
 }
 .food {
   background-color: lemonchiffon;
+  color: #181500;
   width: 18%;
   height: 275px;
   display: inline-block;

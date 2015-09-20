@@ -16,12 +16,12 @@
           console.log($scope.jsonfoods);
         });
       };
-      this.delete = function(index){
+      this.add = function(index){
+        console.log($scope.addedFood);
         var newFood = $scope.jsonfoods.splice(index, 1);
         $scope.addedFood.push(newFood);
-        for (i = 0; i < newFood.length; i++){
-        console.log("This is the new food array" + newFood[i]);
-      }
+        console.log($scope.addedFood);
+        console.log($scope.addedFood[0][0].name);
       };
       var self = this;
       self.toggleShowProtein = function(value){
