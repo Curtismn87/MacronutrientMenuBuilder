@@ -6,6 +6,7 @@
     // $scope.data = $firebaseObject(ref);
     $scope.jsonfoods = {};
     $scope.addedFood = [];
+
     this.getFoods = function(){
       console.log("button Clicked");
       var options = $("select option:selected").val();
