@@ -18,11 +18,25 @@
         });
       };
       this.add = function(index){
-        console.log($scope.addedFood);
         var newFood = $scope.jsonfoods.splice(index, 1);
+        var menuNutrients = {protein: 0, fat: 0, carbs: 0};
         $scope.addedFood.push(newFood);
         console.log($scope.addedFood);
-        console.log($scope.addedFood[0][0].name);
+        // console.log($scope.addedFood[0][0].length);
+        // console.log($scope.addedFood[0][0].nutrients);
+        // console.log($scope.addedFood[0][0].nutrients[0].nutrient);
+        // console.log($scope.addedFood[0][0].nutrients[0].value);
+        for (x = 0; x < $scope.addedFood.length; x++){
+          for (y = 0; y < $scope.addedFood[x].length; y++ ){
+              menuNutrients.protein += parseFloat($scope.addedFood[x][y].nutrients[0].value);
+              menuNutrients.fat += parseFloat($scope.addedFood[x][y].nutrients[1].value);
+              menuNutrients.carbs += parseFloat($scope.addedFood[x][y].nutrients[2].value);
+          }
+        }
+        menuNutrients.protein.toFixed(2);
+        menuNutrients.fat.toFixed(2);
+        menuNutrients.carbs.toFixed(2);
+        console.log(menuNutrients)
       };
       var self = this;
       self.toggleShowProtein = function(value){
