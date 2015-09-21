@@ -9,42 +9,27 @@
     $scope.menuNutrients = [{name: "protein", amount: 0}, {name: "fat", amount: 0}, {name: "carbs", amount: 0}];
 
     this.getFoods = function(){
-      console.log("button Clicked");
       var options = $("select option:selected").val();
       var foodsURL = "http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&max=1500&fg="+ options +"&nutrients=205&nutrients=204&nutrients=203";
         $http.get(foodsURL)
         .success(function(response){
           $scope.jsonfoods = response.report.foods;
-          console.log($scope.jsonfoods);
         });
       };
       this.add = function(index){
         var newFood = $scope.jsonfoods.splice(index, 1);
         $scope.addedFood.push(newFood);
         $scope.menuNutrients = [{name: "protein", amount: 0}, {name: "fat", amount: 0}, {name: "carbs", amount: 0}];
-        console.log($scope.addedFood);
-        console.log(newFood[0]);
-        console.log(newFood[0].nutrients[0].value);
-        console.log(typeof newFood[0].nutrients[0].value);
-        // console.log($scope.addedFood[0][0].length);
-        // console.log($scope.addedFood[0][0].nutrients);
-        // console.log($scope.addedFood[0][0].nutrients[0].nutrient);
-        // console.log($scope.addedFood[0][0].nutrients[0].value);
         for (x = 0; x < $scope.addedFood.length; x++){
           for (y = 0; y < $scope.addedFood[x].length; y++ ){
               $scope.menuNutrients[0].amount += parseFloat($scope.addedFood[x][y].nutrients[0].value);
               $scope.menuNutrients[1].amount += parseFloat($scope.addedFood[x][y].nutrients[1].value);
               $scope.menuNutrients[2].amount += parseFloat($scope.addedFood[x][y].nutrients[2].value);
-              console.log($scope.addedFood[0][0].nutrients);
-
           }
         }
         $scope.menuNutrients[0].amount = $scope.menuNutrients[0].amount.toFixed(2);
         $scope.menuNutrients[1].amount = $scope.menuNutrients[1].amount.toFixed(2);
         $scope.menuNutrients[2].amount = $scope.menuNutrients[2].amount.toFixed(2);
-        console.log($scope.menuNutrients[0].amount);
-        console.log($scope.menuNutrients[1].amount);
-        console.log($scope.menuNutrients[2].amount);
       };
       var self = this;
       self.toggleShowProtein = function(value){
