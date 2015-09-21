@@ -32,11 +32,15 @@
               $scope.menuNutrients[0].amount += parseFloat($scope.addedFood[x][y].nutrients[0].value);
               $scope.menuNutrients[1].amount += parseFloat($scope.addedFood[x][y].nutrients[1].value);
               $scope.menuNutrients[2].amount += parseFloat($scope.addedFood[x][y].nutrients[2].value);
-              $scope.menuNutrients[0].amount.toFixed(2);
-              $scope.menuNutrients[1].amount.toFixed(2);
-              $scope.menuNutrients[2].amount.toFixed(2);
+
           }
         }
+        $scope.menuNutrients[0].amount.toFixed(2);
+        $scope.menuNutrients[1].amount.toFixed(2);
+        $scope.menuNutrients[2].amount.toFixed(2);
+        console.log($scope.menuNutrients[0].amount.toFixed(2));
+        console.log($scope.menuNutrients[1].amount.toFixed(2));
+        console.log($scope.menuNutrients[2].amount.toFixed(2));
       };
       var self = this;
       self.toggleShowProtein = function(value){
