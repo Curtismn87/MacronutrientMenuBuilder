@@ -16,6 +16,7 @@
           $scope.jsonfoods = response.report.foods;
         });
       };
+      this.getFoods();
       this.add = function(index){
         var newFood = $scope.jsonfoods.splice(index, 1);
         $scope.addedFood.push(newFood);
