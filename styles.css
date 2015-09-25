@@ -2,6 +2,9 @@
 .ng-scope{
   display: inline;
 }
+.ingredientNutrients{
+  /*float: right;*/
+}
 
 .add{
   color: green;

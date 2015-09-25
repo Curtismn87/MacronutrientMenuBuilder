@@ -4,6 +4,7 @@
   app.controller("foodsController",["$scope", "$http", function($scope, $http){
     $scope.jsonfoods = {};
     $scope.addedFood = [];
+    $scope.menuNutrients = [{name: "protein", amount: 0}, {name: "fat", amount: 0}, {name: "carbs", amount: 0}];
 
     this.getFoods = function(){
       var options = $("select option:selected").val();
@@ -13,9 +14,21 @@
           $scope.jsonfoods = response.report.foods;
         });
       };
+      this.getFoods();
       this.add = function(index){
         var newFood = $scope.jsonfoods.splice(index, 1);
         $scope.addedFood.push(newFood);
+        $scope.menuNutrients = [{name: "protein", amount: 0}, {name: "fat", amount: 0}, {name: "carbs", amount: 0}];
+        for (x = 0; x < $scope.addedFood.length; x++){
+          for (y = 0; y < $scope.addedFood[x].length; y++ ){
+              $scope.menuNutrients[0].amount += parseFloat($scope.addedFood[x][y].nutrients[0].value);
+              $scope.menuNutrients[1].amount += parseFloat($scope.addedFood[x][y].nutrients[1].value);
+              $scope.menuNutrients[2].amount += parseFloat($scope.addedFood[x][y].nutrients[2].value);
+          }
+        }
+        $scope.menuNutrients[0].amount = $scope.menuNutrients[0].amount.toFixed(2);
+        $scope.menuNutrients[1].amount = $scope.menuNutrients[1].amount.toFixed(2);
+        $scope.menuNutrients[2].amount = $scope.menuNutrients[2].amount.toFixed(2);
       };
       var self = this;
       self.toggleShowProtein = function(value){
