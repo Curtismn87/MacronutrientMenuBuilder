@@ -9,7 +9,9 @@
 .add{
   color: green;
 }
-
+.remove{
+  color: red;
+}
 
 .body{
   overflow: hidden;
@@ -17,6 +19,27 @@
 .foodlist{
   display:flex;
 }
+.addedFood p{
+  overflow: auto;
+  border-radius: 15px;
+  border: 2px solid rgb(219, 212, 148);
+  background-color: lemonchiffon;
+  color: #181500;
+  text-align: center;
+}
+.currentRecipe {
+  text-align: center;
+}
+.currentRecipe h2, h4{
+  text-decoration: underline;
+}
+.nutrientsContainer{
+float: right;
+position: absolute;
+    top: 25%;
+    right: 0px;
+}
+
 .food {
   background-color: lemonchiffon;
   color: #181500;
