@@ -58,6 +58,7 @@
        <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
        <input type="submit" class="btn btn-primary">
      </form>
+     <button ng-click='foodsCtrl.clearIngredients()'>Clear Current Ingredients</button>
   <div class="currentRecipe">
     <h2 class="titleIngredients">Current Ingredients:</h2>
     <div class="addedFood" ng-repeat="foods in addedFood">
