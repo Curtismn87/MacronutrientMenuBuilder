@@ -19,6 +19,11 @@
 .foodlist{
   display:flex;
 }
+.testingFoods{
+  margin: 0 auto;
+  height:auto;
+  width: 30%;
+}
 .addedFood p{
   overflow: auto;
   border-radius: 15px;
