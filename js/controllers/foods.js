@@ -29,7 +29,12 @@
         $scope.menuNutrients[0].amount = $scope.menuNutrients[0].amount.toFixed(2);
         $scope.menuNutrients[1].amount = $scope.menuNutrients[1].amount.toFixed(2);
         $scope.menuNutrients[2].amount = $scope.menuNutrients[2].amount.toFixed(2);
+        hideRecipe();
       };
+      this.remove = function(index){
+        $scope.jsonfoods.splice(index, 1);
+      };
+      
       var self = this;
       self.toggleShowProtein = function(value){
         var proteinInput = this.protein;
@@ -50,6 +55,12 @@
         }
 
       };
-
+      function hideRecipe(){
+        if ($scope.menuNutrients[0].amount !== 0 && $scope.menuNutrients[1].amount !== 0 && $scope.menuNutrients[2].amount !== 0){
+          $(".currentRecipe").show();
+        }
+        else $(".currentRecipe").hide();
+      }
+      hideRecipe();
   }]);
 })();

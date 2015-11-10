@@ -51,22 +51,29 @@
   </select>
 </div>
   <div ng-controller='foodsController as foodsCtrl'>
-  <button ng-click='foodsCtrl.getFoods()' class='showFoods btn btn-info'>Show Food Group</button>
-  <form ng-submit="foodsCtrl.toggleShowProtein()" class="proteinForm form-group" ng-show="foodsCtrl.toggleShowProtein">
-    <label>Protein</label>
-    <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
-    <input type="submit" class="btn btn-primary">
-  </form>
-<div class="currentRecipe">
-  <h2 class="titleIngredients">Current Ingredients</h2>
-  <div class="ingredientNutrients" ng-repeat="nutrients in menuNutrients">
-    <p>{{nutrients.name}}: {{nutrients.amount}}g <br></p>
-  </div>
-  <div class="addedFood" ng-repeat="foods in addedFood">
-    <div class="addedFood" ng-repeat="food in foods">
-     <p>{{food.name}} - {{food.measure}}</p>
+
+      <button ng-click='foodsCtrl.getFoods()' class='showFoods btn btn-info'>Show Food Group</button>
+      <form ng-submit="foodsCtrl.toggleShowProtein()" class="proteinForm form-group" ng-show="foodsCtrl.toggleShowProtein">
+        <label>Protein</label>
+       <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
+       <input type="submit" class="btn btn-primary">
+     </form>
+  <div class="currentRecipe">
+    <h2 class="titleIngredients">Current Ingredients:</h2>
+    <div class="addedFood" ng-repeat="foods in addedFood">
+      <div ng-repeat="food in foods">
+        <div class="individualFoodDiv">
+         <p>{{food.name}} - {{food.measure}}</p>
+        </div>
+     </div>
+   </div>
+    <div class=nutrientsContainer>
+     <h4>Total Nutrients in Meal</h4>
+    <div class="ingredientNutrients" ng-repeat="nutrients in menuNutrients">
+        <p>{{nutrients.name}}: {{nutrients.amount}}g <br></p>
     </div>
-  </div>
+ </div>
+>>>>>>> experimental
  </div>
    <div class="foodList">
     <div class="food" id={{$index}} ng-repeat="food in jsonfoods" ng-click="foodsCtrl.add($index)">
