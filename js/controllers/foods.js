@@ -36,7 +36,11 @@
       this.remove = function(index){
         $scope.jsonfoods.splice(index, 1);
       };
-      
+      this.clearIngredients = function(){
+        $scope.addedFood.length = 0;
+        $scope.menuNutrients = [{name: "protein", amount: 0}, {name: "fat", amount: 0}, {name: "carbs", amount: 0}];
+      };
+
       var self = this;
       self.toggleShowProtein = function(value){
         var proteinInput = this.protein;
