@@ -85,14 +85,13 @@ li{
 .proteinForm{
   margin: 10px;
 }
-@media (min-width: 700px) {
+@media screen and (max-width: 700px) {
   .currentRecipe{
-    display: inline;
+    display: block;
+    position: relative;
   }
 .nutrientsContainer {
-  float: right;
-  top: 10%;
-  position: absolute;
-  right: 0px;
+  display: block;
+  position: relative;
                     }
 }

@@ -2,6 +2,7 @@
 <html lang="en" ng-app="MenuBuilder">
 <head>
  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>Macronutrient Menu Builder</title>
  <link rel="stylesheet" type="text/css" href="styles.css">
  <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -75,13 +76,15 @@
     </div>
  </div>
  </div>
-   <div class="foodList">
-    <div class="food .col-xs-6 .col-md-4" id={{$index}} ng-repeat="food in jsonfoods" ng-click="foodsCtrl.add($index)">
-      <p><span class="add"> + </span>{{food.name}}</p>
-    <ul>
-      <li>Serving Size: {{food.measure}} </li>
-      <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}g</li>
-    </ul>
+   <div class="foodList container-fluid">
+     <div class="row">
+      <div class="food col-xs-6 col-md-2" id={{$index}} ng-repeat="food in jsonfoods" ng-click="foodsCtrl.add($index)">
+        <p><span class="add"> + </span>{{food.name}}</p>
+        <ul>
+          <li>Serving Size: {{food.measure}} </li>
+          <li ng-repeat="nutrient in food.nutrients" ngShow="">{{nutrient.nutrient}}: {{nutrient.value}}g</li>
+        </ul>
+      </div>
     </div>
   </div>
   </div>
