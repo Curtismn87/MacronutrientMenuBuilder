@@ -48,7 +48,10 @@
             var protein = parseFloat($scope.jsonfoods[i].nutrients[0].value);
             var fat = parseFloat($scope.jsonfoods[i].nutrients[1].value);
             var carbs = parseFloat($scope.jsonfoods[i].nutrients[2].value);
-            if (proteinInput >= protein - (protein * (5/100)) && proteinInput <= protein + (protein * (5/100))){
+            if (proteinInput === null || proteinInput === undefined){
+              return;
+            }
+            else if (proteinInput >= protein - (protein * (5/100)) && proteinInput <= protein + (protein * (5/100))){
               $("#"+i).show();
             }
             else {

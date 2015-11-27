@@ -56,7 +56,7 @@
       <button ng-click='foodsCtrl.getFoods()' class='showFoods btn btn-info'>Show Food Group</button>
       <form ng-submit="foodsCtrl.toggleShowProtein()" class="proteinForm form-group" ng-show="foodsCtrl.toggleShowProtein">
         <label>Protein</label>
-       <input type="text" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
+       <input type="number" name="protein" id="focusedInput" placeholder="Enter Protein (g)" ng-model="foodsCtrl.protein">
        <input type="submit" class="btn btn-primary">
      </form>
      <button ng-click='foodsCtrl.clearIngredients()'>Clear Current Ingredients</button>
