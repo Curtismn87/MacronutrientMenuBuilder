@@ -44,24 +44,30 @@
         var proteinInput = this.protein;
         var fatInput = this.fat;
         var carbInput = this.carbohydrate;
+        hideIngredients();
+        if (proteinInput !== null || proteinInput !== undefined){
+          proteinTest();
+        }
+
+        function proteinTest(){
         for (var i=0; i < $scope.jsonfoods.length; i ++){
             var protein = parseFloat($scope.jsonfoods[i].nutrients[0].value);
-            var fat = parseFloat($scope.jsonfoods[i].nutrients[1].value);
-            var carbs = parseFloat($scope.jsonfoods[i].nutrients[2].value);
-            if (proteinInput === null || proteinInput === undefined){
-              return;
-            }
-            else if (proteinInput >= protein - (protein * (5/100)) && proteinInput <= protein + (protein * (5/100))){
+
+            if (proteinInput >= protein - (protein * (5/100)) && proteinInput <= protein + (protein * (5/100))){
               $("#"+i).show();
             }
             else {
-              $("#"+i).hide();
+              console.log("Testing");
             }
-
           this.protein="";
         }
-
+      }
       };
+      function hideIngredients(){
+      for (var i=0; i < $scope.jsonfoods.length; i ++){
+          $("#"+i).hide();
+        }
+      }
       function hideRecipe(){
         if ($scope.menuNutrients[0].amount !== 0 && $scope.menuNutrients[1].amount !== 0 && $scope.menuNutrients[2].amount !== 0){
           $(".currentRecipe").show();
