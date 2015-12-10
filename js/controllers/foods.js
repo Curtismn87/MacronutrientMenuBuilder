@@ -41,6 +41,7 @@
 
       var self = this;
       self.toggleShowProtein = function(value){
+        var proteinArray = [];
         var proteinInput = this.protein;
         var fatInput = this.fat;
         var carbInput = this.carbohydrate;
@@ -54,7 +55,8 @@
             var protein = parseFloat($scope.jsonfoods[i].nutrients[0].value);
 
             if (proteinInput >= protein - (protein * (5/100)) && proteinInput <= protein + (protein * (5/100))){
-              $("#"+i).show();
+                
+              // $("#"+i).show();
             }
             else {
               console.log("Testing");
