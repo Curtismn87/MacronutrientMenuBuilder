@@ -12,8 +12,8 @@
       var foodsURL = "https://api.nal.usda.gov/fdc/v1/foods/list?api_key=DEMO_KEY";
         $http.get(proxyurl + foodsURL)
         .success(function(response){
+          console.log("This is response: " + response);
           $scope.jsonfoods = response.report.foods;
-          console.log("This is response: " + response)
         });
       };
       this.getFoods();
