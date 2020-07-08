@@ -8,9 +8,8 @@
 
     this.getFoods = function(){
       var options = $("select option:selected").val();
-      var proxyurl = "https://cors-anywhere.herokuapp.com/";
       var foodsURL = "https://api.nal.usda.gov/fdc/v1/foods/list?api_key=DEMO_KEY";
-        $http.get(proxyurl + foodsURL)
+        $http.get(foodsURL)
         .success(function(response){
           console.log("This is response: " + response);
           $scope.jsonfoods = response;
