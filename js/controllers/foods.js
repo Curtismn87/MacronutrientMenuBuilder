@@ -13,7 +13,7 @@
         $http.get(proxyurl + foodsURL)
         .success(function(response){
           console.log("This is response: " + response);
-          $scope.jsonfoods = response.report.foods;
+          $scope.jsonfoods = response;
         });
       };
       this.getFoods();
