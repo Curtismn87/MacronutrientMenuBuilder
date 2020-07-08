@@ -12,6 +12,7 @@
       var foodsURL = "http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&max=1500&fg="+ options +"&nutrients=205&nutrients=204&nutrients=203";
         $http.get(proxyurl + foodsURL)
         .success(function(response){
+          response.header("Access-Control-Allow-Origin", "*");
           $scope.jsonfoods = response.report.foods;
         });
       };
