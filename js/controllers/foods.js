@@ -21,12 +21,14 @@
         var newFood = $scope.jsonfoods.splice(index, 1);
         $scope.addedFood.push(newFood);
         $scope.menuNutrients = [{name: "protein", amount: 0}, {name: "fat", amount: 0}, {name: "carbs", amount: 0}];
+        if ($scope.menuNutrients[0].amount){
         for (x = 0; x < $scope.addedFood.length; x++){
           for (y = 0; y < $scope.addedFood[x].length; y++ ){
               $scope.menuNutrients[0].amount += parseFloat($scope.addedFood[x][y].nutrients[0].value);
               $scope.menuNutrients[1].amount += parseFloat($scope.addedFood[x][y].nutrients[1].value);
               $scope.menuNutrients[2].amount += parseFloat($scope.addedFood[x][y].nutrients[2].value);
           }
+        }
         }
         $scope.menuNutrients[0].amount = $scope.menuNutrients[0].amount.toFixed(2);
         $scope.menuNutrients[1].amount = $scope.menuNutrients[1].amount.toFixed(2);
@@ -46,6 +48,7 @@
         var proteinInput = this.protein;
         var fatInput = this.fat;
         var carbInput = this.carbohydrate;
+        if ($scope.jsonfoods[i].nutrients[0].value){
         for (var i=0; i < $scope.jsonfoods.length; i ++){
             var protein = parseFloat($scope.jsonfoods[i].nutrients[0].value);
             var fat = parseFloat($scope.jsonfoods[i].nutrients[1].value);
@@ -62,7 +65,7 @@
 
           this.protein="";
         }
-
+}
       };
       function hideRecipe(){
         if ($scope.menuNutrients[0].amount !== 0 && $scope.menuNutrients[1].amount !== 0 && $scope.menuNutrients[2].amount !== 0){
