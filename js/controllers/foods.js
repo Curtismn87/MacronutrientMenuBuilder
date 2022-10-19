@@ -9,7 +9,7 @@
     this.getFoods = function(){
       var options = $("select option:selected").val();
 //      var foodsURL = "http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8&max=1500&fg="+ options +"&nutrients=205&nutrients=204&nutrients=203";
-      var foodsURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=M4zdaQiev4SOfYzye5gC3xhVTanoFD4uKXt1TNe8";
+      var foodsURL = "https://api.nal.usda.gov/fdc/v1/foods/search?query=apple&pageSize=2&api_key=TbvJkdWxiOLvrBL9NpfZRpHDxmimepRfNscckKw4";
 
         $http.get(foodsURL)
         .success(function(response){
